@@ -22,14 +22,14 @@ public class WebServiceConfiguration extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/vkakarlaService/*");
+        return new ServletRegistrationBean(servlet, "/soap/*");
     }
 
     @Bean(name = "employees")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema employeeSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("vkakarlaServiceSoapHttp");
-        wsdl11Definition.setLocationUri("/vkakarlaService");
+        wsdl11Definition.setPortTypeName("employeeHttps");
+        wsdl11Definition.setLocationUri("/soap");
         wsdl11Definition.setTargetNamespace("dto.service.qluser.com");
         wsdl11Definition.setSchema(employeeSchema);
         return wsdl11Definition;

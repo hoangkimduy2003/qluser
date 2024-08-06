@@ -342,7 +342,8 @@
                     <!-- Thư mục đầu ra cho các lớp Java sinh ra -->
                     <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
                     <!-- Đặt package cho các lớp sinh ra -->
-                    <packageName>com.qluser.soap.dto</packageName>
+                    <packageName>com.qluser.service.dto</packageName>
+                    <clearOutputDir>false</clearOutputDir>
                 </configuration>
             </plugin>
             <plugin>
