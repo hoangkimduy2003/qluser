@@ -19,6 +19,7 @@ public class SoapConfig {
     @Bean
     public WebServiceTemplate webServiceTemplate() {
         WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
+        webServiceTemplate.setDefaultUri("http://localhost:8088/soap/employee");
         webServiceTemplate.setMarshaller(marshaller());
         webServiceTemplate.setUnmarshaller(marshaller());
         return webServiceTemplate;

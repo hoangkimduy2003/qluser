@@ -14,10 +14,7 @@ public class CallSoapService extends WebServiceGatewaySupport {
     private WebServiceTemplate template;
 
     public GetEmployeeResponse getLoanStatus(GetEmployeeByIdRequest request) {
-        GetEmployeeResponse acknowledgement = (GetEmployeeResponse) template.marshalSendAndReceive(
-            "http://localhost:8088/soap/employee",
-            request
-        );
+        GetEmployeeResponse acknowledgement = (GetEmployeeResponse) template.marshalSendAndReceive(request);
         return acknowledgement;
     }
 }

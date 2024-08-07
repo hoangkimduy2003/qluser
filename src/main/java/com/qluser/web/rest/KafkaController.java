@@ -17,9 +17,9 @@ public class KafkaController {
     @Autowired
     private CallSoapService callSoapService;
 
-    @GetMapping("/test/{id}")
-    public GetEmployeeResponse getById(@PathVariable Long id) {
-        return callSoapService.getLoanStatus(new GetEmployeeByIdRequest(id));
+    @PostMapping("/test")
+    public GetEmployeeResponse getById(@RequestBody GetEmployeeByIdRequest dto) {
+        return callSoapService.getLoanStatus(dto);
     }
 
     @GetMapping("/producersMsg")
