@@ -29,7 +29,7 @@ public class WebServiceConfiguration extends WsConfigurerAdapter {
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema employeeSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("employeeHttps");
-        wsdl11Definition.setLocationUri("/soap");
+        wsdl11Definition.setLocationUri("/soap/employee");
         wsdl11Definition.setTargetNamespace("dto.service.qluser.com");
         wsdl11Definition.setSchema(employeeSchema);
         return wsdl11Definition;

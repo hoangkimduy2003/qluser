@@ -1,11 +1,11 @@
 package com.qluser.web.rest;
 
+import com.qluser.service.CallSoapService;
 import com.qluser.service.Producers;
+import com.qluser.service.dto.GetEmployeeByIdRequest;
+import com.qluser.service.dto.GetEmployeeResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -13,6 +13,14 @@ public class KafkaController {
 
     @Autowired
     Producers producers;
+
+    @Autowired
+    private CallSoapService callSoapService;
+
+    @GetMapping("/test/{id}")
+    public GetEmployeeResponse getById(@PathVariable Long id) {
+        return callSoapService.getLoanStatus(new GetEmployeeByIdRequest(id));
+    }
 
     @GetMapping("/producersMsg")
     public void getmessageFromClient(@RequestParam("message") String message) {

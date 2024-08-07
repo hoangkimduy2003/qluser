@@ -30,6 +30,12 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "getEmployeeByIdRequest", namespace = "http://dto.service.qluser.com")
 public class GetEmployeeByIdRequest {
 
+    public GetEmployeeByIdRequest(long employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public GetEmployeeByIdRequest() {}
+
     @XmlElement(namespace = "http://dto.service.qluser.com")
     protected long employeeId;
 
