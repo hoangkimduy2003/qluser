@@ -18,19 +18,11 @@ public class RedisConfiguration {
     @Value("${config.redis.host}")
     private String redisHost;
 
-    @Value("${config.redis.username}")
-    private String username;
-
-    @Value("${config.redis.password}")
-    private String password;
-
     @Bean
     JedisConnectionFactory jedisConnectionFactory() {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
         redisStandaloneConfiguration.setHostName(redisHost);
         redisStandaloneConfiguration.setPort(Integer.parseInt(redisPort));
-        redisStandaloneConfiguration.setUsername(username);
-        redisStandaloneConfiguration.setPassword(password);
         return new JedisConnectionFactory(redisStandaloneConfiguration);
     }
 
